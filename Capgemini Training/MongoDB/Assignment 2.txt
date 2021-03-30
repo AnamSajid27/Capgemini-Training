@@ -1,0 +1,73 @@
+Import the zips.json file into your MongoDB. Database name is "population" and collection name is "zipcodes".
+
+cmd: mongoimport --db population --collection zipcodes --file C:\Users\Acer\Downloads\zip.json 
+
+
+Atlanta Population
+1. use db.zipcodes.find() to filter results to only the results where city is ATLANTA and state is GA.
+cmd: db.zipcodes.find({$and:[{city:"ATLANTA"},{state:"GA"}]})
+or 
+cmd: db.zipcodes.find({city:"ATLANTA",state:"GA"})
+
+2. use db.zipcodes.aggregate with $match to do the same as above.
+cmd: db.zipcodes.aggregate([{$match:{city:"ATLANTA",state:"GA"}}])
+
+3. use $group to count the number of zip codes in Atlanta.
+
+cmd: db.zipcodes.aggregate([{$match:{city:"ATLANTA"}},{$group:{_id:{_id:"$_id"}}},{$count:"Number of zip code"}])
+
+4. use $group to find the total population in Atlanta.
+
+cmd:  db.zipcodes.aggregate([{$group:{_id:"$city",population:{$sum:"$pop"}}},{$match:{_id:"ATLANTA"}}])
+
+
+Populations By State
+1. use aggregate to calculate the total population for each state
+
+cmd: db.zipcodes.aggregate([{$group:{_id:"$state",Totalpopulation:{$sum:"$pop"}}}])
+
+2. sort the results by population, highest first
+
+cmd:  db.zipcodes.aggregate([{$group:{_id:"$state",Totalpopulation:{$sum:"$pop"}}},{$sort:{Totalpopulation:-1}}])
+
+3. limit the results to just the first 3 results. What are the top 3 states in population?
+
+cmd: db.zipcodes.aggregate([{$group:{_id:"$state",Totalpopulation:{$sum:"$pop"}}},{$sort:{Totalpopulation:-1}},{$limit:3}])
+
+{ _id: 'CA', Totalpopulation: 29754890 },
+  { _id: 'NY', Totalpopulation: 17990402 },
+  { _id: 'TX', Totalpopulation: 16984601 }
+}
+
+
+Populations by City
+
+1. use aggregate to calculate the total population for each city (you have to use city/state combination). You can use a combination for the _id of the $group: { city: '$city', state: '$state' }
+
+cmd: db.zipcodes.aggregate([{$group:{_id:"$city",population:{$sum:"$pop"}}}]) 
+or 
+cmd:  db.zipcodes.aggregate([{$group:{_id:{city:"$city",state:"$state"},population:{$sum:"$pop"}}}])
+
+2. sort the results by population, highest first
+cmd:  db.zipcodes.aggregate([{$group:{_id:{city:"$city",state:"$state"},population:{$sum:"$pop"}}},{$sort:{"population":-1}}])
+
+3. limit the results to just the first 3 results. What are the top 3 cities in population?
+
+cmd: db.zipcodes.aggregate([{$group:{_id:{city:"$city",state:"$state"},population:{$sum:"$pop"}}},{$sort:{"population":-1}},{$limit:3}])
+
+4. What are the top 3 cities in population in Texas?
+{ _id: { city: 'CHICAGO', state: 'IL' }, population: 2452177 },
+  { _id: { city: 'BROOKLYN', state: 'NY' }, population: 2300504 },
+  { _id: { city: 'LOS ANGELES', state: 'CA' }, population: 2102295 }
+
+
+Bonus
+  1. Write a query to get the average city population for each state.
+  cmd: db.zipcodes.aggregate([{$group:{_id:"$city",AvgPopulation:{$avg:"$pop"}}}])
+
+  2. What are the top 3 states in terms of average city population?
+  cmd: db.zipcodes.aggregate([{$group:{_id:"$city",AvgPopulation:{$avg:"$pop"}}},{$sort:{AvgPopulation:-1}},{$limit:3}])
+
+  { _id: 'BELL GARDENS', AvgPopulation: 99568 },
+  { _id: 'ARLETA', AvgPopulation: 88114 },
+  { _id: 'SOUTH GATE', AvgPopulation: 87026 }

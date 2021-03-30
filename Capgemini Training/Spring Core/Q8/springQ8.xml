@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN 2.0//EN" "http://www.springframework.org/dtd/spring-beans-2.0.dtd">
+
+<beans>
+    <bean id="dog" class="com.capgemini.springAssignment.Q8.Dog" >
+        <property name="name" value="tommy"></property>
+    </bean>
+
+    <!-- using init-method and destroy-method -->
+    <bean id="dog1" class="com.capgemini.springAssignment.Q8.Dog" init-method="myInit" destroy-method="myDest">
+        <property name="name" value="Jack"/>
+    </bean>
+
+    <!-- Using postConstruct and preDestroy Annontations -->
+
+    <bean id="dog2" class="com.capgemini.springAssignment.Q8.Dog">
+        <property name="name" value="Serro"/>
+    </bean>
+
+    <!-- we have to add this class inorder to use annonatation for init and destroy method -->
+    <bean class="org.springframework.context.annotation.CommonAnnotationBeanPostProcessor"></bean>
+
+</beans>

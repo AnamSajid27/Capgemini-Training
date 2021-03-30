@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Form</title>
+  <style type="text/css">
+    body{
+      margin: 1;
+      padding: 1;
+      font-family: sans-serif;
+      background: #34495e;
+    }
+    #title{
+      text-align: center;
+      font-weight: bolder;
+      font-style: oblique;
+      border: 5px solid black;
+      border-radius: 20px;
+    }
+    #description{
+
+    }
+    .box input[type="text"],.box input[type="address"],.box input[type="email"], .box input[type="number"]{
+      background: none;
+      display: block;
+      text-align: left;
+      border: 2px solid #3498db;
+      padding: 8px 6px;
+      color: white;
+      border-radius: 24px;
+      transition: 0.25s;
+    }
+    .box input[type="text"]:focus,.box input[type="address"]:focus,.box input[type="email"]:focus, .box input[type="number"]:focus{
+      width: 280px;
+      border-color: #2ecc71;
+    }
+    #submit{
+      background: none;
+      margin-top: 10px;
+      width: 100px;
+      text-align: center;
+      border: 2px solid #3498db;
+      padding: 4px 2px;
+      border-radius: 24px;
+      cursor: pointer;
+      font-weight: bolder;
+    }
+    .f1{
+      border: 5px solid black;
+      border-radius: 10px;
+    }
+    .f2,.f3,.f4{
+      border:5px solid black;
+      margin-top: 10px;
+      border-radius: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div id="outside">
+    <form id="form" action="#" class="box">
+      <h1 id="title">Application Form</h1>
+      <p id="description"><b>Note:</b> Form is to be completed at least 21 days prior to exam</p>
+  
+  <!-- ------------------Personal Details---------------------------- -->
+  <fieldset class="f1">
+    <legend>Personal Details</legend>
+    <div>
+      <label id="name-label" for="name">Name:</label>
+      <input type="text" required id="name" name="user_name" placeholder="Enter name here">   
+    </div>
+    <div>
+      <label for="address-label">Address:</label>
+      <input type="Address" id="address" name="Address" placeholder="Enter address here">   
+    </div>
+    <div>
+      <label id="email-label" for="Email">Email:</label>
+      <input type="email" required id="email" name="user_email" placeholder="Enter email here">   
+    </div>
+    <div>
+      <label id="number-label" for="phone">Phone Number:</label>
+      <input type="number" id="number" name="user_name" placeholder="Enter 10 digit number" min="1" max="9">  
+    </div>
+    <!-- ------------------Radio Buttons-------------------------------- -->
+    <div>
+      <label for="Gender">Gender</label>
+      <p>
+        <input type="radio" name="gender" value="male" checked> Male<br>
+        <input type="radio" name="gender" value="female"> Female<br>
+        <input type="radio" name="gender" value="other"> Other
+      </p>
+    </div>
+  </fieldset>
+  <!-- ------------------Checkboxes-------------------------------- -->
+  <fieldset class="f2">
+    <label for="Informatio">Check All That Apply</label>
+    <p>
+      <input type="checkbox" name="tattoo" value="tattoo"> I have tattoos and/or piercings<br>
+      <input type="checkbox" name="car" value="car"> I own a panel van or V8 ute<br>
+      <input type="checkbox" name="work" value="work"> I work full-time<br>
+      <input type="checkbox" name="rich" value="rich"> My parents are rich<br>
+    </p>
+  </fieldset>
+  
+  <!-- -----------------Dropdown menus--------------------------------- -->
+  
+  <fieldset class="f3">
+    <div>
+      <label for="politics">Political Persuasion:</label>
+      <select id="dropdown">
+  <option value="left">Left Wing</option>
+  <option value="right">Right Wing</option>
+  <option value="conservative">Conservative</option>
+  <option value="nazi">Nazi</option><br><br>
+  </select>
+
+      <label for="education">Education Level Completed:</label>
+      <select id="dropdown2">
+  <option value="University">University</option>
+  <option value="College">College</option>
+  <option value="Secondary">High School</option>  
+  <option value="None">None</option>
+  </select>
+    </div>
+  </fieldset>
+
+  <!-- --------------------Text Areas------------------------------ -->
+  
+  <fieldset class="f4">
+    <legend>Essay Section</legend>
+    <div>
+      <label for="msg"></label>
+      <p> In 50 words or more explain why you want to give the exam</p>
+      <textarea id="msg" name="user_message" rows="4" cols="50" placeholder="Enter Text Here"></textarea>   </div>
+    <div>
+      <label for="msg">Please upload contact details for 2 references</label><br>
+      <textarea id="msg2" name="user_message" rows="4" cols="50" placeholder="Enter Text Here"></textarea>   </div>
+    <p>Upload Police Clearance Certificate, Bank Statement and Medical Certifiates here:
+      <button>Attach Files</button></p>
+  </fieldset>
+
+  <div id="submitbutton">
+    <button type="submit" id="submit">Submit</button>   </div>
+
+   </form>
+  </div>
+</body>
+</html>

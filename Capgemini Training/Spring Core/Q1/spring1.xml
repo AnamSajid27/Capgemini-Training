@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN 2.0//EN" "http://www.springframework.org/dtd/spring-beans-2.0.dtd">
+-->
+
+
+
+<beans xmlns = "http://www.springframework.org/schema/beans"
+           xmlns:xsi = "http://www.w3.org/2001/XMLSchema-instance"
+           xmlns:context = "http://www.springframework.org/schema/context"
+           xsi:schemaLocation = "http://www.springframework.org/schema/beans
+   http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+   http://www.springframework.org/schema/context
+   http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+
+
+                                       <!--      Using setter injection -->
+      <bean id="customer" class="com.capgemini.springAssignment.Q1.Customer">
+          <property name="customerId" value="111"/>
+          <property name="customerName" value="neeraj"/>
+          <property name="customerContact" value="8755946301"/>
+          <property name="customerAddress" ref="custAddress"/>
+
+      </bean>
+      <bean id="custAddress" class="com.capgemini.springAssignment.Q1.Address">
+          <property name="street" value="Gic"/>
+          <property name="city" value="Berinag"/>
+          <property name="state" value="uttrakhand"/>
+          <property  name="country" value="India"/>
+          <property name="zip" value="262531" />
+      </bean>
+
+
+
+                                <!-- Using constructor injection -->
+    <bean id="customerCon" class = "com.capgemini.springAssignment.Q1.Customer">
+        <constructor-arg  type ="int" value="112"/>
+        <constructor-arg value="pankaj"/>
+        <constructor-arg value="9876543210"/>
+        <constructor-arg ref="custAddressCon"/>
+    </bean>
+    <bean id="custAddressCon" class="com.capgemini.springAssignment.Q1.Address">
+        <constructor-arg value="Gic"/>
+        <constructor-arg value="Berinag"/>
+        <constructor-arg value="uttrakhand"/>
+        <constructor-arg value="India"/>
+        <constructor-arg value="262531" />
+    </bean>
+
+    <!-- instead of adding each bean postPorcessor -->
+    <context:annotation-config/>
+</beans>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Assignment2Q2</title>
+</head>
+<body>
+	<script type="text/javascript">
+		function square(x){
+			return x*x;
+		}
+		function double(x){
+			return 2*x;
+		}
+		function composed(func1,func2,f)
+		{
+           return(func1(func2(f)));
+		}
+		console.log(composed(double,square,5));
+	</script>
+</body>
+</html>

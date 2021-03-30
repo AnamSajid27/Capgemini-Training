@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN 2.0//EN" "http://www.springframework.org/dtd/spring-beans-2.0.dtd">
+
+<beans>
+    <bean id="bankAccount1" class="com.capgemini.springAssignment.Q3.BankAccount">
+        <constructor-arg type = "long" value="1171"/>
+        <constructor-arg value="neeraj"/>
+        <constructor-arg value="Saving"/>
+        <constructor-arg type="double" value="15000"/>
+
+    </bean>
+    <bean id="bankAccount2" class="com.capgemini.springAssignment.Q3.BankAccount">
+        <constructor-arg type = "long" value="1172"/>
+        <constructor-arg value="Ramesh"/>
+        <constructor-arg value="Current"/>
+        <constructor-arg type="double" value="20000"/>
+
+    </bean>
+    <!--                      without autowiring
+    <bean id="BankRepo" class="com.capgemini.springAssignment.Q3.BankAccountepositoryImpl">
+        <property name="bankAccount">
+            <list>
+                <ref bean="BankAccount1"/>
+                <ref bean="BankAccount2"/>
+            </list>
+        </property>
+    </bean>
+-->
+
+    <!--                                  autowiring by Name
+    <bean id="BankRepo" class="com.capgemini.springAssignment.Q3.BankAccountepositoryImpl" autowire="byName">
+
+    </bean>
+    -->
+
+    <!--                           autowiring by type   ( it will work if we have only one type )
+
+    <bean id="BankRepo" class="com.capgemini.springAssignment.Q3.BankAccountepositoryImpl" autowire="byType"/>
+
+    -->
+
+    <!--                                  autowiring by constructor          -->
+   <bean id="BankRepo" class="com.capgemini.springAssignment.Q3.BankAccountepositoryImpl" autowire="constructor">
+
+   </bean>
+
+
+    <bean id="controller" class="com.capgemini.springAssignment.Q3.BankAccountController">
+
+    </bean>
+
+
+</beans>

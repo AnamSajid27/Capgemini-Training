@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" id="WebApp_ID" version="2.5">
+  <display-name>SpringQ1</display-name>
+  
+   <servlet>
+      <servlet-name>spring-dispatcher</servlet-name>
+        <servlet-class>org.springframework.web.servlet.DispatcherServlet
+        </servlet-class>
+   </servlet> 
+   
+   <servlet-mapping>
+      <servlet-name>spring-dispatcher</servlet-name>
+      <url-pattern>/</url-pattern>
+   </servlet-mapping>
+  
+</web-app>
+
+
+<!-- 1) Design and develop a Spring MVC web application as follows:
+a. Create index.jsp page having one hyperlink. When user clicks on that hyperlink, it should call HelloWorldController.
+b. Design HelloWorldController class that returns a view helloWorld.jsp
+c. Design a helloWorld.jsp page that displays “Hello World” message. -->

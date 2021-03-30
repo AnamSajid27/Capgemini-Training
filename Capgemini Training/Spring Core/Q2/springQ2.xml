@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN 2.0//EN" "http://www.springframework.org/dtd/spring-beans-2.0.dtd">
+
+<beans>
+    <bean id="Question" class="com.capgemini.springAssignment.Q2.Question">
+        <property name="questionId"  value="111"/>
+        <property name="question" value="what is Spring?"/>
+        <property name="answers">
+            <list>
+                <value>Spring is a lightweight framework </value>
+                <value>he Spring framework comprises several modules such as IOC, AOP, DAO, Context, ORM, WEB MVC etc.</value>
+                <value>It was developed by Rod Johnson in 2003.</value>
+            </list>
+        </property>
+    </bean>
+
+    <bean id="Question1" class="com.capgemini.springAssignment.Q2.Question">
+        <property name="questionId"  value="111"/>
+        <property name="question" value="what is Spring?"/>
+        <property name="answersSet">
+            <set>
+                <value>Spring is a lightweight framework </value>
+                <value>he Spring framework comprises several modules such as IOC, AOP, DAO, Context, ORM, WEB MVC etc.</value>
+                <value>It was developed by Rod Johnson in 2003.</value>
+            </set>
+        </property>
+    </bean>
+                                    <!-- using set collection injection -->
+    <bean id="Question2" class="com.capgemini.springAssignment.Q2.Question">
+        <property name="questionId"  value="111"/>
+        <property name="question" value="what is Spring?"/>
+        <property name="answersMap">
+            <map>
+                <entry key="1" value="Spring is a lightweight framework"/>
+                <entry key="2" value="he Spring framework comprises several modules such as IOC, AOP, DAO, Context, ORM, WEB MVC etc."/>
+                <entry key="3" value="It was developed by Rod Johnson in 2003."/>
+            </map>
+        </property>
+    </bean>
+
+</beans>
