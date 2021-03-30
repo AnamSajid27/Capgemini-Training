@@ -1,0 +1,73 @@
+<div class="container">
+    <h1>Advertisement Form</h1>
+    <form #adsForm="ngForm" (ngSubmit)="onSubmit()">
+        
+    <p>
+        <mat-form-field appearance="legacy">
+            <mat-label>Title</mat-label>
+            <input #title=ngModel class="form-control " matInput placeholder="Title" name="title"  [(ngModel)]="ads.title" required>
+            <small class="text-danger" [class.d-none]="title.valid || title.untouched">Title is required</small>
+        </mat-form-field>
+    </p>
+    <p>
+        <mat-form-field appearance="legacy">
+            <mat-label>Name</mat-label>
+            <input matInput [placeholder]="Myname" name="name" #name=ngModel class="from-control"  [(ngModel)]="ads.name" required>
+            <small class="text-danger" [class.d-none]="name.valid || name.untouched">Name is required</small>
+        </mat-form-field>
+    </p>
+    <p>
+        <mat-form-field appearance="legacy">
+            <mat-label>Category</mat-label>
+            <mat-select name="cat" [(ngModel)]="ads.category" #cat=ngModel  required>
+                <mat-option value="{{cat}}" *ngFor="let cat of categoryList" >{{cat}}</mat-option>
+            </mat-select>
+            <small class="text-danger" [class.d-none]="cat.valid || cat.untouched">Title is required</small>
+        </mat-form-field>
+    </p>
+    <p>
+        <mat-form-field appearance="legacy">
+            <mat-label>Discription</mat-label>
+            <textarea matInput name="dsc" [(ngModel)]="ads.discription" ></textarea>
+        </mat-form-field>
+    </p>
+    <button  [disabled]="adsForm.form.invalid" mat-raised-button color="primary">Submit</button>
+</form>
+</div>
+
+<div container *ngIf="isSubmitted">
+   
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+        <!--- Note that these columns can be defined in any order.
+              The actual rendered columns are set as a property on the row definition" -->
+      
+        <!-- Position Column -->
+        <ng-container matColumnDef="title">
+          <th mat-header-cell *matHeaderCellDef> Title. </th>
+          <td mat-cell *matCellDef="let element"> {{element.title}} </td>
+        </ng-container>
+      
+        <!-- Name Column -->
+        <ng-container matColumnDef="name">
+          <th mat-header-cell *matHeaderCellDef> Name </th>
+          <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+        </ng-container>
+      
+        <!-- Weight Column -->
+        <ng-container matColumnDef="category">
+          <th mat-header-cell *matHeaderCellDef> Category </th>
+          <td mat-cell *matCellDef="let element"> {{element.category}} </td>
+        </ng-container>
+      
+        <!-- Symbol Column -->
+        <ng-container matColumnDef="discription">
+          <th mat-header-cell *matHeaderCellDef> Discription </th>
+          <td mat-cell *matCellDef="let element"> {{element.discription}} </td>
+        </ng-container>
+      
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+      
+      
+</div>

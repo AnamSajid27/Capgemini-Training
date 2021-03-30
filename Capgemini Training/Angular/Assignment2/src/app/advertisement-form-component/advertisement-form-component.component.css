@@ -1,0 +1,34 @@
+.navbar{
+    justify-content: space-between;
+}
+span{
+    padding-right: 1rem;
+    
+}
+.navbar a{
+    pointer:cursor;
+}
+
+.container{
+    border: solid black 2px;
+    margin: 10%;
+    
+
+}
+mat-form-field{
+    margin-left: 30%;
+}
+
+h1{
+    text-align: center;
+    margin-top: 2%;
+}
+
+table{
+    width: 80%;
+    margin: 10%;
+}
+button{
+    margin-left: 30%;
+    margin-bottom: 5%;
+}

@@ -1,0 +1,34 @@
+<div class="container">
+  <mat-form-field class="searchBar">
+    <mat-label>Search</mat-label>
+    <input matInput type="search" [(ngModel)]="search" >
+    <button mat-button  matSuffix mat-icon-button aria-label="Clear" (click)="searchAd()">
+      <mat-icon>search</mat-icon>
+    </button>
+  </mat-form-field>
+  <table *ngIf="isSearched" class="table table-striped">
+    <thead>
+        <tr>
+          <th>Title</th>
+          <th>Name</th>
+          <th>Category</th>
+          <th>Discription</th>
+          <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let character of name1">
+        <td>{{ character.title }}</td>
+        <td>{{ character.name }}</td>
+        <td>{{ character.category }}</td>
+        <td>{{ character.discription }}</td>
+        <td>
+          <a (click)="openDialog('Update',character)"class="edit" title="edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
+          <a (click)="deleteDataApi(character)" class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
+          <!-- <a (click)="deleteData(character.title)"class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a> -->
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+

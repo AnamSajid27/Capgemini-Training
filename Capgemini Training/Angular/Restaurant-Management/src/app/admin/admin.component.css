@@ -1,0 +1,14 @@
+.menu-card {
+    max-width: 300px;
+  }
+  
+  .menu-header-image {
+    background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+    background-size: cover;
+  }
+
+button{
+    padding-left: 30px;
+    padding-right: 30px;
+    left: 90px;
+}

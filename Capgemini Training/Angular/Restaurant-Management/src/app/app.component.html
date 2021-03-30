@@ -1,0 +1,11 @@
+<mat-toolbar color="primary" class ="navbar">
+    <div class="home" (click)="onHome()">RestaurantManagement</div>
+    <div>
+        <span (click)="onMenu()"  *ngIf="userState">Menu</span>
+        <span (click)="onRest1()" >Resturant</span>
+        <span (click)="login()"  *ngIf="success">Login</span>
+        <span (click)="logout()"  *ngIf="!success">Logout</span>
+    </div>
+</mat-toolbar>
+
+<router-outlet></router-outlet>

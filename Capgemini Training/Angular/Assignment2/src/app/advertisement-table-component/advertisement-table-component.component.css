@@ -1,0 +1,15 @@
+.container{
+    margin-left: 10%;
+}
+th{
+    border-spacing: 2px;
+}
+
+td i{
+    cursor: pointer;
+    margin: 1px;
+}
+
+.searchBar{
+    float: right;
+}

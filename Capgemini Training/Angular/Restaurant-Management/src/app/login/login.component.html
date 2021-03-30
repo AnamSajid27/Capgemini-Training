@@ -1,0 +1,15 @@
+<h1 mat-dialog-title><strong>Login</strong></h1>
+<div mat-dialog-content>
+    <mat-form-field >
+        <input placeholder="Username" matInput [(ngModel)]="Username">
+    </mat-form-field>
+    <mat-form-field >
+        <input placeholder="Password" matInput [(ngModel)]="Password">
+    </mat-form-field>
+    
+</div>
+<div mat-dialog-actions>
+    <button mat-button (click)="doAction()">Login</button>
+    <button mat-button (click)="closeDialog()" mat-flat-button color="warn">Cancel</button>
+    <small *ngIf="invalid" class="text-danger">Invalid Credentials</small>
+</div>
