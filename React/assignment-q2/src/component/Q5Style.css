@@ -1,0 +1,51 @@
+.card{
+   
+    margin-top: 10%;
+    max-width: 45%;
+    margin-left: 30%;
+    padding-bottom: 10%;
+    
+}
+.title{
+    background-color: #696969;
+    color: white;
+    padding-bottom: 30px;
+    text-align: center;
+    font-size:xx-large   
+}
+
+.faClock{
+  margin-right: 20px ;
+  margin-top: 20px;
+  
+}
+
+.faToggleOn{
+    margin-right: 20px ;
+    color: #2196F3;
+    font-size: 40px;
+    margin-top: 10px;
+ 
+}
+.faToggleOff{
+    margin-right: 20px ;
+   color: #2196F3;
+   font-size: 40px;
+   margin-top: 10px;
+}
+
+.faCalender{
+    font-size: 40px;
+   margin-top: 10px;
+}
+.body{
+    color: #2196F3;
+    font-size: x-large;
+    text-shadow: 80px;
+    background-color: 	#D3D3D3;
+    margin-right: 20px;
+    margin-left: 20px;
+    
+   
+}
+
